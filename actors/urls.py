@@ -3,7 +3,7 @@ from .views import ActorCreateListView, ActorRetrieveUpdateDestroyView
 
 
 urlpatterns = [
-    path('',ActorCreateListView.as_view(), name='actor-create-list'),
-    path('<int:pk>/', ActorRetrieveUpdateDestroyView.as_view(), name='actor-detail-update-delete'),
+    path('actors/', ActorCreateListView.as_view(), name='actor-create-list'),
+    path('actors/<int:pk>/', ActorRetrieveUpdateDestroyView.as_view(), name='actor-detail-update-delete'),
     
 ]
