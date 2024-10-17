@@ -1,12 +1,29 @@
 from rest_framework import serializers
 from .models import Movie
+from django.db.models import Avg
+
 import datetime 
 
 
 class MovieSerializer(serializers.ModelSerializer):
+    rate = serializers.SerializerMethodField(read_only=True)
     class Meta:
         model = Movie
         fields = '__all__'
+        
+    def get_rate(self, obj):
+        #import ipdb ; ipdb.set_trace()
+        reviews_avg = obj.reviews.aggregate(Avg('stars'))['stars__avg']
+        #reviews = obj.reviews.all()
+        if reviews_avg:
+            # total = 0
+            # for review in reviews:
+            #     total += review.stars
+            # reviews_count = reviews.count()
+            # return round(total / reviews_count, 2)
+            return round(reviews_avg, 2)
+        return "Ainda não há notas para este filme."     
+        
         
     def validade_release_date(self, value):
         if value > datetime.date.today():
