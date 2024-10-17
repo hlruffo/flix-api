@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtualenvs e Ambientes Virtuais
+.env/
+venv/
+env/
+
+# Django
+*.log
+db.sqlite3
+/media/
+staticfiles/
+
+# Configurações e Arquivos Sensíveis
+*.env
+.env.*
+
+# Arquivos de Cache e de Sessão
+*.migrations/
+*.session
+
+# Arquivos de IDEs
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Arquivos de Teste e Cobertura
+.tox/
+.coverage
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# Arquivos do Sistema Operacional
+.DS_Store
+Thumbs.db
+
+# Outros
+*.bak
+*.swp
